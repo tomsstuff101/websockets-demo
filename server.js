@@ -17,11 +17,20 @@ const io = socketio(server) // create an instance of socket.io
 io.on("connection", (socket) => {     // socket represent the user thats connected a bit like 'e' in eventlistenrs
     console.log('New WebSocket Connection')
 
-    socket.emit("message", "Hello from io - there")
+    // socket.emit("message", "Hello from io - there")
 
-    socket.on("sendMessage", param => {
-        console.log(param)
+    // socket.on("sendMessage", param => {
+    //     // console.log(param)
+    //     io.emit("message", param)
+    // })
+
+    socket.emit("message", "Welcome to the chatroom")
+    // socket.broadcast.emit("message", "new user joined")
+
+    socket.on('sendMessage', (message) => {
+        io.emit('message', message)
     })
+
 })
 
 

@@ -4,6 +4,7 @@ const socket = io()
 const form = document.getElementById('form')
 const formInput = document.getElementById('formInput')
 
+
 // socket.on('message' , (bananas) => {
 //     console.log(bananas)
 // })
@@ -23,7 +24,7 @@ form.addEventListener('submit', e => {
 
 
 
-//     socket.on('message' , (bananas) => {
+    socket.on('message' , (bananas) => {
 
-//         console.log(bananas)    
-// })
+        console.log(bananas)    
+})
