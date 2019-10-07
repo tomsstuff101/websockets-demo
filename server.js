@@ -14,12 +14,14 @@ const server = http.createServer(app) // this is the key difference for websocke
 
 const io = socketio(server) // create an instance of socket.io
 
-
-
 io.on("connection", (socket) => {     // socket represent the user thats connected a bit like 'e' in eventlistenrs
     console.log('New WebSocket Connection')
 
     socket.emit("message", "Hello from io - there")
+
+    socket.on("sendMessage", param => {
+        console.log(param)
+    })
 })
 
 
