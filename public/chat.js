@@ -3,6 +3,7 @@ const socket = io()
 
 const form = document.getElementById('form')
 const formInput = document.getElementById('formInput')
+const messageList = document.getElementById('messages')
 
 
 // socket.on('message' , (bananas) => {
@@ -24,7 +25,7 @@ form.addEventListener('submit', e => {
 
 
 
-    socket.on('message' , (bananas) => {
-
-        console.log(bananas)    
+    socket.on('message' , (param) => {
+        messageList.innerHTML += `<li>---> ${param}</li>`
+    
 })
